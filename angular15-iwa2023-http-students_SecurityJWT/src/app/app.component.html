@@ -1,0 +1,50 @@
+
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+  <div class="col-md-3 mb-2 mb-md-0">
+    <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+      <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+    </a>
+    <p style="color: blue; font-weight: bold; margin-left: 100px; margin-bottom: 20px">Memorial Hospital</p>
+  </div>
+
+  <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+    <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
+    <li><a href="#" class="nav-link px-2">Features</a></li>
+    <li><a href="#" class="nav-link px-2">Pricing</a></li>
+    <li><a href="#" class="nav-link px-2">FAQs</a></li>
+    <li><a href="#" class="nav-link px-2">About</a></li>
+  </ul>
+
+  <div class="col-md-3 text-end">
+    <button type="button" class="btn btn-outline-primary me-2" routerLink="auth/login" routerLinkActive="active">Login</button>
+    <button type="button" class="btn btn-primary" routerLink="auth/sign-up" routerLinkActive="routerLinkActive">Sign-up</button>
+    <a routerLink="/user" *ngIf="isUser()">User</a>
+    <a routerLink="/appointment" *ngIf="isAdmin()">Admin</a>
+    <a (click)="logout()">Logout</a>
+  </div>
+</header>
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav" routerLinkActive="active">
+      <li class="nav-item"><a class="nav-link" routerLink="home">Home</a></li>
+      <li *ngIf="authority === 'user'" class="nav-item">
+        <a class="nav-link" routerLink="user">User Page</a>
+      </li>
+      <li *ngIf="authority === 'admin'" class="nav-item">
+        <a class="nav-link" routerLink="admin">Admin Page</a>
+      </li>
+      <li *ngIf="!authority" class="nav-item">
+        <a class="nav-link" routerLink="auth/login">Login</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div id="content">
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+

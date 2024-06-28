@@ -1,0 +1,68 @@
+<!-- admin.component.html
+<div>
+  <h2>Add AppointmentModel</h2>
+  <form (ngSubmit)="addAppointment()">
+    <div>
+      <label for="details">Details</label>
+      <input type="text" id="details" [(ngModel)]="newAppointment.description" name="details">
+    </div>
+    <div>
+      <label for="doctorId">Doctor ID</label>
+      <input type="number" id="doctorId" [(ngModel)]="newAppointment.doctorId" name="doctorId">
+    </div>
+    <div>
+      <label for="userId">User ID</label>
+      <input type="number" id="userId" [(ngModel)]="newAppointment.patientId" name="userId">
+    </div>
+    <button type="submit">Add AppointmentModel</button>
+  </form>
+
+  <h2>Prescriptions</h2>
+  <div>
+    <label for="appointmentId">AppointmentModel ID</label>
+    <input type="number" id="appointmentId" [(ngModel)]="selectedAppointmentId" name="appointmentId">
+    <button (click)="loadPrescriptions()">Load Prescriptions</button>
+  </div>
+  <ul>
+    <li *ngFor="let prescription of prescriptions">
+      {{ prescription.medicineName }}
+    </li>
+  </ul>
+</div>
+-->
+<h2>Appointments</h2>
+<div>
+  <label>Appointment Date:
+    <input #appointmentDate />
+  </label>
+  <br>
+  <label>Appointment Time:
+    <input #appointmentTime />
+  </label>
+  <br>
+  <label>Appointment Description:
+    <input #appointmentDescription />
+  </label>
+  <br>
+  <label>Patient id:
+    <input #patientId />
+  </label>
+  <br>
+  <label>Doctor id:
+    <input #doctorId />
+  </label>
+  <br>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(appointmentDate.value, appointmentTime.value, appointmentDescription.value, Number(patientId.value), Number(doctorId.value)); appointmentDate.value=''; appointmentTime.value=''; appointmentDescription.value=''; patientId.value=''; doctorId.value='';">
+    add
+  </button>
+</div>
+<ul>
+
+  <li *ngFor="let appointment of appointments" >
+    <span class="badge">{{appointment.id}}</span> {{ appointment.date }} {{ appointment.time }} {{ appointment.description }} {{ appointment.patient }} {{ appointment.doctor }}
+    </li>
+
+</ul>
+
+

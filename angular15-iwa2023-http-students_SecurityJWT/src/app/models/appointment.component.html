@@ -1,0 +1,36 @@
+<h2>Appointments</h2>
+<div>
+  <label>Appointment Date:
+    <input #appointmentDate />
+  </label>
+  <br>
+  <label>Appointment Time:
+    <input #appointmentTime />
+  </label>
+  <br>
+  <label>Appointment Description:
+    <input #appointmentDescription />
+  </label>
+  <br>
+  <label>Patient id:
+    <input #patientId />
+  </label>
+  <br>
+  <label>Doctor id:
+    <input #doctorId />
+  </label>
+  <br>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(appointmentDate.value, appointmentTime.value, appointmentDescription.value, patientId.value ,doctorId.value ); appointmentDate.value=''; appointmentTime.value=''; appointmentDescription.value=''; patientId.value=''; doctorId.value='';">
+    add
+  </button>
+</div>
+<ul>
+
+  <li *ngFor="let appointment of appointments" >
+    <span class="badge">{{appointment.id}}</span> {{ appointment.date }} {{ appointment.time }} {{ appointment.description }} {{ appointment.patient }} {{ appointment.doctor }}
+  </li>
+
+</ul>
+
+

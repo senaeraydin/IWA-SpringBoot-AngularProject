@@ -1,0 +1,19 @@
+<h4>Content from Server</h4>
+{{board}}
+{{errorMessage}}
+
+<div>
+  <h2>Your Appointments</h2>
+  <ul>
+    <li *ngFor="let appointment of appointments">
+      {{ appointment.date}}
+    </li>
+  </ul>
+
+  <h2>Your Prescriptions</h2>
+  <ul>
+    <li *ngFor="let prescription of prescriptions">
+      {{ prescription.medicineName }}
+    </li>
+  </ul>
+</div>
